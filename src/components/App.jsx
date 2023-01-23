@@ -2,6 +2,7 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Routes, Route } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+import Style from "./style.css";
 
 import { Actors, MovieInformation, Movies, NavBar, Profile } from ".";
 

@@ -8,6 +8,7 @@ import {
   Avatar,
   useMediaQuery,
 } from "@mui/material";
+
 import {
   Menu,
   AccountCircle,
@@ -19,6 +20,8 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 
 import { Sidebar } from "..";
+
+// import makeStyles from "@mui/styles/makeStyles";
 
 import useStyles from "./styles";
 

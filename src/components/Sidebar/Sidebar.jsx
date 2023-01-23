@@ -13,7 +13,9 @@ import {
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 
-import makeStyles from "./styles";
+import useStyles from "./styles";
+
+import { useGetGenresQuery } from "../../services/TMDB";
 
 const Categories = [
   { label: "Popular", value: "popular" },
@@ -33,7 +35,9 @@ const blueLogo = "https://zoro.to/images/logo.png";
 
 const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
-  const classes = makeStyles();
+  const classes = useStyles();
+  const { data, isFetching } = useGetGenresQuery();
+  console.log(data);
 
   return (
     <>
@@ -65,20 +69,27 @@ const Sidebar = ({ setMobileOpen }) => {
       <Divider />
       <List>
         <ListSubheader>Genres</ListSubheader>
-        {demoCategories.map(({ label, value }) => (
-          <Link key={value} className={classes.links} to="/">
-            <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
+
+        {isFetching ? (
+          <Box display="flex" justifyContent="center">
+            <CircularProgress size="4rem" />
+          </Box>
+        ) : (
+          data?.genres?.map(({ name, id }) => (
+            <Link key={name} className={classes.links} to="/">
+              <ListItem onClick={() => {}} button>
+                {/* <ListItemIcon>
                 <img
                   src={redLogo}
                   className={classes.genreImages}
                   height={30}
                 />
               </ListItemIcon> */}
-              <ListItemText primary={label} />
-            </ListItem>
-          </Link>
-        ))}
+                <ListItemText primary={name} />
+              </ListItem>
+            </Link>
+          ))
+        )}
       </List>
     </>
   );
