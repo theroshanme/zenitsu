@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   imageLink: {
     display: "flex",
     justifyContent: "center",
-    padding: "10% 0",
+    padding: "10% 0", //10% on top and botttom; 0% on left and right
   },
   image: {
     width: "70%",
@@ -14,10 +14,6 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
   },
   genreImages: {
-    filter: theme.palette.mode === "dark" ? "invert(1)" : "dark",
-  },
-  bigText: {
-    color: "primary",
-    fontSize: 30,
+    filter: theme.palette.mode === "dark" && "invert(1)", //notice: <=> theme.palette.mode === 'dark' ? 'invert(1)' : ''
   },
 }));
