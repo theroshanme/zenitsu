@@ -23,10 +23,10 @@ import { Sidebar } from "..";
 
 // import makeStyles from "@mui/styles/makeStyles";
 
-import useStyles from "./styles";
+import makeStyles from "./styles";
 
 const NavBar = () => {
-  const classes = useStyles;
+  const classes = makeStyles;
   const isMobile = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
   const isAuthenticated = "true";

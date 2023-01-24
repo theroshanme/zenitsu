@@ -2,7 +2,14 @@ import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
   movie: {
-    padding: "10px",
+    paddingBottom: "20px",
+  },
+  box: {
+    display: "flex",
+    justifyContent: "center",
+    width: "240px",
+    height: "300px",
+    overflow: "hidden",
   },
   title: {
     color: theme.palette.text.primary,
